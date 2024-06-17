@@ -1,10 +1,14 @@
+// HomePage.js
 import React from 'react';
-import { Typography, Container, Grid } from '@mui/material';
+import { Typography, Container, Grid, useMediaQuery, useTheme } from '@mui/material';
 
 const HomePage = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
-    <Container maxWidth="md" style={{ textAlign: 'center', marginTop: '50px' }}>
-      <Typography variant="h4" gutterBottom style={{ color: '#3f51b5', fontWeight: 'bold' }}>
+    <Container maxWidth="md" style={{ textAlign: 'center', marginTop: isMobile ? '20px' : '50px' }}>
+      <Typography variant={isMobile ? 'h5' : 'h4'} gutterBottom style={{ color: '#3f51b5', fontWeight: 'bold' }}>
         Welcome to Form Management
       </Typography>
       <Grid container justifyContent="center" alignItems="center" spacing={2}>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { TextField, Button, Box, Container, Typography, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
+import { TextField, Button, Box, Container, Typography, MenuItem, Select, InputLabel, FormControl, useMediaQuery, useTheme } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faPhone, faGlobe, faPaperPlane, faFileExcel } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,6 +8,9 @@ const FormA = () => {
   const [name, setName] = useState(localStorage.getItem('name') || '');
   const [countryCode, setCountryCode] = useState(localStorage.getItem('countryCode') || '');
   const [phoneNumber, setPhoneNumber] = useState(localStorage.getItem('phoneNumber') || '');
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   useEffect(() => {
     localStorage.setItem('name', name);
@@ -42,7 +45,7 @@ const FormA = () => {
         onSubmit={handleSubmit}
         sx={{
           backgroundColor: 'white',
-          padding: '20px',
+          padding: isMobile ? '10px' : '20px',
           borderRadius: '8px',
           boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
           mt: 4,
@@ -51,11 +54,11 @@ const FormA = () => {
           alignItems: 'center',
         }}
       >
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography variant={isMobile ? 'h5' : 'h4'} component="h1" gutterBottom>
           Form A
         </Typography>
-        
-        <Box sx={{ display: 'flex', alignItems: 'flex-end', mb: 2 }}>
+
+        <Box sx={{ display: 'flex', alignItems: 'flex-end', mb: 2, width: '100%' }}>
           <FontAwesomeIcon icon={faUser} style={{ marginRight: '10px' }} />
           <TextField
             label="Name"
@@ -67,7 +70,7 @@ const FormA = () => {
           />
         </Box>
 
-        <Box sx={{ display: 'flex', alignItems: 'flex-end', mb: 2 }}>
+        <Box sx={{ display: 'flex', alignItems: 'flex-end', mb: 2, width: '100%' }}>
           <FontAwesomeIcon icon={faGlobe} style={{ marginRight: '10px' }} />
           <FormControl variant="standard" fullWidth>
             <InputLabel>Country Code</InputLabel>
@@ -90,7 +93,7 @@ const FormA = () => {
           />
         </Box>
 
-        <Box sx={{ display: 'flex', alignItems: 'flex-end', mb: 2 }}>
+        <Box sx={{ display: 'flex', alignItems: 'flex-end', mb: 2, width: '100%' }}>
           <FontAwesomeIcon icon={faPhone} style={{ marginRight: '10px' }} />
           <TextField
             label="Phone Number"
@@ -107,7 +110,7 @@ const FormA = () => {
           color="primary"
           type="submit"
           endIcon={<FontAwesomeIcon icon={faPaperPlane} />}
-          style={{ marginBottom: '10px' }}
+          sx={{ mb: 2 }}
         >
           Submit
         </Button>
