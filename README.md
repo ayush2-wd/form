@@ -127,6 +127,7 @@ const Form = sequelize.define('Form', {
 });
 
 module.exports = Form;
+````
 
 ## Running the Application
 
