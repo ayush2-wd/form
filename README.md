@@ -152,13 +152,13 @@ To run the application, follow these steps:
 
 ## 🖼️ Screenshots
 
-![Form Management System](images/Home.png)
-![Form A](images/formA.png)
-![Form B](images/formB.png)
-![Form Sync Mechanism](images/sync.png)
-![Form Excel Sheet Synchronization](images/excel.png)
-![Responsive Homepage](images/Responsive1.png)
-![Responsive Forms](images/Responsive2.png)
+![Form Management System](/images/Home.png)
+![Form A](/images/formA.png)
+![Form B](/images/formB.png)
+![Form Sync Mechanism](/images/sync.png)
+![Form Excel Sheet Synchronization](/images/excel.png)
+![Responsive Homepage](/images/Responsive1.png)
+![Responsive Forms](/images/Responsive2.png)
 
 ## 💻 Technologies Used
 
